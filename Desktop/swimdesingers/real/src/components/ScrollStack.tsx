@@ -182,12 +182,12 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+    const stack = stackRef.current;
+    if (!stack) return;
 
     const lenis = new Lenis({
-      wrapper: scroller,
-      content: scroller.querySelector('.scroll-stack-inner') as HTMLElement,
+      wrapper: stack,
+      content: stack.querySelector('.scroll-stack-inner') as HTMLElement,
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,

@@ -32,19 +32,19 @@ const Services = () => {
       key: 'experience'
     },
     { 
-      number: '500+', 
+      number: '50+', 
       label: 'Pools Completed', 
       icon: Award,
       key: 'projects'
     },
     { 
-      number: '50+', 
+      number: '15+', 
       label: 'Expert Engineers', 
       icon: Users,
       key: 'engineers'
     },
     { 
-      number: '100K+', 
+      number: '600K+', 
       label: 'SQ. FT. Development', 
       icon: Star,
       key: 'development'
@@ -92,52 +92,22 @@ const Services = () => {
 
   const clients = [
     { 
-      name: "Marriott Hotels", 
-      logo: "MARRIOTT",
+      name: "Nature Resorts Pvt Ltd", 
+      logo: "NATURE RESORTS",
+      color: "text-green-600",
+      bgColor: "bg-green-50"
+    },
+    { 
+      name: "Havelock Island Beach Resort", 
+      logo: "HAVELOCK ISLAND",
       color: "text-blue-600",
       bgColor: "bg-blue-50"
     },
     { 
-      name: "Four Seasons", 
-      logo: "FOUR SEASONS",
-      color: "text-gray-800",
-      bgColor: "bg-gray-50"
-    },
-    { 
-      name: "Ritz-Carlton", 
-      logo: "RITZ-CARLTON",
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-50"
-    },
-    { 
-      name: "Aman Resorts", 
-      logo: "AMAN",
-      color: "text-black",
-      bgColor: "bg-black/5"
-    },
-    { 
-      name: "St. Regis", 
-      logo: "ST. REGIS",
-      color: "text-red-600",
-      bgColor: "bg-red-50"
-    },
-    { 
-      name: "Waldorf Astoria", 
-      logo: "WALDORF ASTORIA",
+      name: "Tubro Consultants", 
+      logo: "TUBRO CONSULTANTS",
       color: "text-purple-600",
       bgColor: "bg-purple-50"
-    },
-    { 
-      name: "Mandarin Oriental", 
-      logo: "MANDARIN ORIENTAL",
-      color: "text-orange-600",
-      bgColor: "bg-orange-50"
-    },
-    { 
-      name: "Bulgari Hotels", 
-      logo: "BVLGARI",
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50"
     }
   ];
 
@@ -163,9 +133,9 @@ const Services = () => {
             const interval = setInterval(() => {
               setScrambledNumbers({
                 experience: scrambleText('15+'),
-                projects: scrambleText('500+'),
-                engineers: scrambleText('50+'),
-                development: scrambleText('100K+')
+                projects: scrambleText('50+'),
+                engineers: scrambleText('15+'),
+                development: scrambleText('600K+')
               });
             }, 100);
 
@@ -174,9 +144,9 @@ const Services = () => {
               clearInterval(interval);
               setScrambledNumbers({
                 experience: '15+',
-                projects: '500+',
-                engineers: '50+',
-                development: '100K+'
+                projects: '50+',
+                engineers: '15+',
+                development: '600K+'
               });
             }, 2000);
 
@@ -209,7 +179,7 @@ const Services = () => {
   }, [services.length]);
 
   return (
-    <section ref={sectionRef} id="services" className="pt-8 pb-20 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="services" className="pt-8 pb-16 sm:pb-20 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-cyan-50"></div>
@@ -219,40 +189,40 @@ const Services = () => {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Stats Section - Top */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-12 md:mb-16 lg:mb-20">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group relative">
               {/* Floating particles background */}
               <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-4 left-1/2 w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div>
-                <div className="absolute top-8 right-4 w-1 h-1 bg-cyan-400 rounded-full animate-ping"></div>
-                <div className="absolute bottom-4 left-4 w-1 h-1 bg-sky-400 rounded-full animate-bounce"></div>
+                <div className="absolute top-2 sm:top-4 left-1/2 w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div>
+                <div className="absolute top-4 sm:top-8 right-2 sm:right-4 w-1 h-1 bg-cyan-400 rounded-full animate-ping"></div>
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-1 h-1 bg-sky-400 rounded-full animate-bounce"></div>
               </div>
               
               <div className="relative">
-                <div className="text-5xl md:text-6xl lg:text-6xl font-bold text-black mb-2 group-hover:scale-110 transition-transform duration-300 font-mono">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300 font-mono">
                   {scrambledNumbers[stat.key as keyof typeof scrambledNumbers]}
                 </div>
-                <div className="absolute -top-2 -left-2 w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -top-1 sm:-top-2 -left-1 sm:-left-2 w-1 sm:w-2 h-1 sm:h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Glowing effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150"></div>
               </div>
               
-              <div className="text-gray-600 text-sm font-medium relative z-10">
+              <div className="text-gray-600 text-xs sm:text-sm font-medium relative z-10">
                 {stat.label}
               </div>
               
               {/* Icon with animation */}
-              <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <stat.icon className="w-6 h-6 mx-auto text-blue-500 animate-bounce" />
+              <div className="mt-1 sm:mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 mx-auto text-blue-500 animate-bounce" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20 relative">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-6 sm:mb-12 md:mb-16 lg:mb-20 relative">
           {/* Background decorative elements */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-3xl"></div>
@@ -261,11 +231,11 @@ const Services = () => {
           </div>
           {/* Left - Pool Image with Logo */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden group shadow-2xl">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden group shadow-2xl">
               <img 
                 src={serviceImages[activeService] || "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800"}
                 alt={services[activeService]?.title || "Luxury Pool Design"}
-                className="w-full h-[500px] object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+                className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800";
                 }}
@@ -273,11 +243,11 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
               
               {/* Service indicator dots */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
                 {services.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       index === activeService 
                         ? 'bg-white scale-125' 
                         : 'bg-white/50 hover:bg-white/75'
@@ -287,9 +257,9 @@ const Services = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute top-6 right-6 w-4 h-4 bg-white/30 rounded-full animate-pulse backdrop-blur-sm"></div>
-              <div className="absolute bottom-20 left-6 w-3 h-3 bg-cyan-400/80 rounded-full animate-bounce backdrop-blur-sm"></div>
-              <div className="absolute top-1/2 right-8 w-2 h-2 bg-sky-400/60 rounded-full animate-ping"></div>
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-3 h-3 sm:w-4 sm:h-4 bg-white/30 rounded-full animate-pulse backdrop-blur-sm"></div>
+              <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-6 w-2 h-2 sm:w-3 sm:h-3 bg-cyan-400/80 rounded-full animate-bounce backdrop-blur-sm"></div>
+              <div className="absolute top-1/2 right-6 sm:right-8 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-400/60 rounded-full animate-ping"></div>
               
 
               
@@ -298,32 +268,32 @@ const Services = () => {
           </div>
 
           {/* Right - Flowing Menu */}
-          <div className="h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="h-[300px] sm:h-[350px] md:h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
             <FlowingMenu 
               items={[
                 { 
                   link: '#', 
                   text: 'Custom Pool Design', 
                   image: '/services/view-hotel-pool.jpg',
-                  icon: <Palette className="w-5 h-5" />
+                  icon: <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
                 },
                 { 
                   link: '#', 
                   text: 'Pool Installation', 
                   image: '/services/photorealistic-wooden-house-interior-with-timber-decor-furnishings.jpg',
-                  icon: <Wrench className="w-5 h-5" />
+                  icon: <Wrench className="w-4 h-4 sm:w-5 sm:h-5" />
                 },
                 { 
                   link: '#', 
                   text: 'Pool Renovation', 
                   image: '/services/view-hotel-pool.jpg',
-                  icon: <Sparkles className="w-5 h-5" />
+                  icon: <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                 },
                 { 
                   link: '#', 
                   text: 'Maintenance Services', 
                   image: '/services/photorealistic-wooden-house-interior-with-timber-decor-furnishings.jpg',
-                  icon: <Settings className="w-5 h-5" />
+                  icon: <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
                 }
               ]} 
             />
@@ -331,23 +301,23 @@ const Services = () => {
         </div>
 
         {/* Clientele Section */}
-        <div className="bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-3xl p-8 shadow-lg">
-          <div className="mb-6 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Trusted by Industry Leaders</h3>
-            <p className="text-gray-600 text-sm">Delivering excellence to luxury establishments worldwide</p>
+        <div className="bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg">
+          <div className="mb-4 sm:mb-6 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Trusted by Premium Clients</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">Delivering excellence to resorts and consultants across India</p>
           </div>
           
           <div className="relative overflow-hidden">
             {/* Gradient overlays for smooth fade effect */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 md:w-20 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 md:w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
             
-            <div className="flex items-center space-x-12 animate-scroll">
+            <div className="flex items-center space-x-6 sm:space-x-8 md:space-x-12 animate-scroll">
               {/* First set of logos */}
               {clients.map((client, index) => (
                 <div key={`first-${index}`} className="flex-shrink-0 group">
-                  <div className="flex items-center justify-center h-16 px-8 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white">
-                    <div className={`text-lg font-bold tracking-wide ${client.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="flex items-center justify-center h-12 sm:h-14 md:h-16 px-4 sm:px-6 md:px-8 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white">
+                    <div className={`text-sm sm:text-base md:text-lg font-bold tracking-wide ${client.color} group-hover:scale-110 transition-transform duration-300`}>
                       {client.logo}
                     </div>
                   </div>
@@ -357,8 +327,8 @@ const Services = () => {
               {/* Duplicate set for seamless infinite scroll */}
               {clients.map((client, index) => (
                 <div key={`second-${index}`} className="flex-shrink-0 group">
-                  <div className="flex items-center justify-center h-16 px-8 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white">
-                    <div className={`text-lg font-bold tracking-wide ${client.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="flex items-center justify-center h-12 sm:h-14 md:h-16 px-4 sm:px-6 md:px-8 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white">
+                    <div className={`text-sm sm:text-base md:text-lg font-bold tracking-wide ${client.color} group-hover:scale-110 transition-transform duration-300`}>
                       {client.logo}
                     </div>
                   </div>

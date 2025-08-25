@@ -1,0 +1,181 @@
+import React from 'react';
+import { Phone, Mail, MapPin, Globe, Shield, Award, Star, Send } from 'lucide-react';
+
+const Footer = () => {
+  const [state, setState] = React.useState({
+    name: '',
+    email: '',
+    message: '',
+    errors: {} as Record<string, string>,
+    submitting: false,
+    submitted: false,
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setState({ ...state, submitting: true });
+
+    // Console log only
+    console.log('Form submitted:', {
+      name: state.name,
+      email: state.email,
+      message: state.message,
+    });
+
+    setState({
+      ...state,
+      submitting: false,
+      submitted: true,
+    });
+  };
+
+  return (
+    <footer id="contact" className="bg-white text-gray-800 border-t border-gray-200">
+      {/* Contact Section */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6">
+            Let's Get in Touch
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Fill out the form below and we'll get back to you as soon as possible.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 px-8 py-10 shadow-lg">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-lg font-semibold text-gray-800">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  className="bg-white flex h-12 w-full rounded-xl border border-gray-300 px-4 py-3 text-sm outline-none hover:border-blue-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                  placeholder="Enter your name"
+                  name="name"
+                  value={state.name}
+                  onChange={(e) => setState({ ...state, name: e.target.value })}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-lg font-semibold text-gray-800">Email</label>
+                <input
+                  id="email"
+                  placeholder="Enter your email"
+                  type="email"
+                  className="bg-white flex h-12 w-full rounded-xl border border-gray-300 px-4 py-3 text-sm outline-none hover:border-blue-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                  name="email"
+                  required
+                  value={state.email}
+                  onChange={(e) => setState({ ...state, email: e.target.value })}
+                />
+                {state.errors && state.errors.email && (
+                  <p className="mt-1 text-sm text-red-500">{state.errors.email}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-lg font-semibold text-gray-800">Message</label>
+                <textarea
+                  className="bg-white flex min-h-[120px] w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-800 outline-none hover:border-blue-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 resize-none"
+                  id="message"
+                  placeholder="Enter your message"
+                  name="message"
+                  value={state.message}
+                  onChange={(e) => setState({ ...state, message: e.target.value })}
+                />
+                {state.errors && (state.errors as any).message && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {(state.errors as any).message}
+                  </p>
+                )}
+              </div>
+
+              <button
+                className="group/btn relative block h-12 w-full rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 py-3 text-center font-semibold text-white shadow-lg transition-all duration-300 ease-in-out hover:from-blue-700 hover:via-sky-600 hover:to-cyan-600 hover:shadow-xl hover:scale-105"
+                type="submit"
+                disabled={state.submitting}
+              >
+                {state.submitting ? 'Sending...' : 'Send Message'}
+                <Send className="ml-2 inline h-4" />
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              Connect with Us
+            </h3>
+
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-300 bg-white shadow-sm">
+                  <Mail className="h-6 w-6 text-gray-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-gray-600 font-medium">Email us at</p>
+                  <p className="text-gray-900 text-lg font-semibold">venienter@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-300 bg-white shadow-sm">
+                  <Phone className="h-6 w-6 text-gray-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-gray-600 font-medium">Call us at</p>
+                  <p className="text-gray-900 text-lg font-semibold">+91 91762 03070</p>
+                  <p className="text-gray-500 text-sm">24/7 Emergency Support</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-300 bg-white shadow-sm">
+                  <MapPin className="h-6 w-6 text-gray-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-gray-600 font-medium">Visit us at</p>
+                  <p className="text-gray-900 text-lg font-semibold">3564,Rajammal Nagar,TNHB,Ayappakam,Chennai-600077</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-300 bg-white shadow-sm">
+                  <Globe className="h-6 w-6 text-gray-700" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-gray-600 font-medium">Visit our website</p>
+                  <p className="text-gray-900 text-lg font-semibold">www.swimdesigners.com</p>
+                  <p className="text-gray-500 text-sm">Explore our portfolio</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+
+      {/* Bottom Section */}
+      <div className="border-t border-gray-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-500 text-sm">
+              © 2025 Swim Designers. All rights reserved.
+            </div>
+            
+            <div className="text-gray-500 text-sm">
+              Designed by <span className="text-red-600 font-semibold">Ravvyn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
